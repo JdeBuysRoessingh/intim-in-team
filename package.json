@@ -10,6 +10,10 @@
     "type": "git",
     "url": "git+https://github.com/JdeBuysRoessingh/intim-in-team.git"
   },
+<<<<<<< HEAD
+=======
+  "author": "me",
+>>>>>>> 374982a68361be38f19032ae4520892bf29af5a0
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/JdeBuysRoessingh/intim-in-team/issues"
