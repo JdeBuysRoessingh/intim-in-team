@@ -1,0 +1,25 @@
+{
+  "name": "intim-in-team",
+  "version": "1.0.0",
+  "description": "project SHSG summer school 2018",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JdeBuysRoessingh/intim-in-team.git"
+  },
+  "author": "me",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JdeBuysRoessingh/intim-in-team/issues"
+  },
+  "homepage": "https://github.com/JdeBuysRoessingh/intim-in-team#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.4"
+  }
+}
