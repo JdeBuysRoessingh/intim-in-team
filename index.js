@@ -1,15 +1,6 @@
+//this is the server. that receives the messages and maybe send it someone else after
 var express = require('express');
-
-<<<<<<< HEAD
-
-//app setup
-
-var app = express();
-var server = app.listen(4000,function(){
-  console.log('listening to requests on port 4000');
-});
-
-=======
+var socket = require('socket.io');
 // App setup
 var app = express();
 var server = app.listen(4000,function(){
@@ -17,5 +8,16 @@ var server = app.listen(4000,function(){
 });
 
 // Static files
->>>>>>> 34b648bc262ee2556ff7815a0a1ba9af549c04c0
 app.use(express.static('public'));
+
+// Socket setup
+var io = socket(server);
+
+io.on('connection',function(socket){
+  console.log('made socket connection', socket.id);
+
+  socket.on("chat", function(data){
+    io.sockets.emit("chat", data);
+    //this refers to all browsers who are viewing the chatroom
+  });
+});

@@ -10,18 +10,15 @@
     "type": "git",
     "url": "git+https://github.com/JdeBuysRoessingh/intim-in-team.git"
   },
-<<<<<<< HEAD
   "author": "",
-=======
-  "author": "me",
->>>>>>> 34b648bc262ee2556ff7815a0a1ba9af549c04c0
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/JdeBuysRoessingh/intim-in-team/issues"
   },
   "homepage": "https://github.com/JdeBuysRoessingh/intim-in-team#readme",
   "dependencies": {
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "socket.io": "^2.1.1"
   },
   "devDependencies": {
     "nodemon": "^1.18.4"

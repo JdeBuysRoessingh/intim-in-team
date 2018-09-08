@@ -1,20 +1,26 @@
-<!DOCTYPE html>
+
+// this is the code you can see on the webpage, it is the line which the browser understands
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-<<<<<<< HEAD
     <title>intim-in-team</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.dev.js"></script>
+
     <link href="/styles.css"rel="stylesheet"/>
   </head>
   <body>
-    <h1 class="myheaders"> Woo, you see me!<h1>
-=======
-    <title>Intim im team Chatroom</title>
-    <link href="/styles.css" rel="stylesheet"/>
-  </head>
-  <body>
-    <h1 class="myheaders"> Welcome to our fancy chatroom! </h1>
-    <h1></h1>
->>>>>>> 34b648bc262ee2556ff7815a0a1ba9af549c04c0
+    <h1 class="myheaders"> Woo, you see him <h1>
+    <script src = "/chat.js"></script>
+
+  </body>
+    <div id="mario-chat">
+      <div id="chat-window">
+        <div id="output"></div>
+      </div>
+      <input id="handle" type= "text" placeholder="name"/>
+      <input id="message" type= "text" placeholder="Message"/>
+      <button id="send">Send</button>
+    </div>
+    <script src="/chat.js"></script>
   </body>
 </html>
