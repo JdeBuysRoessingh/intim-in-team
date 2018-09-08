@@ -1,19 +1,12 @@
 body{
     font-family: 'Nunito';
 }
-<<<<<<< HEAD
-.myheaders{
-  color: green;
-  background-color: lightblue;
-  }
-=======
 
 .myheaders{
   color: green;
   background-color: lightblue;
 }
 
->>>>>>> 34b648bc262ee2556ff7815a0a1ba9af549c04c0
 h2{
     font-size: 18px;
     padding: 10px 20px;
