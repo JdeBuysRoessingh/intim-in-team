@@ -18,8 +18,17 @@ btn.addEventListener('click', function(){
   message.value = "";
 });
 
-message.addEventListener('keypress', function(){
+
+message.addEventListener('keypress', function(event){
   socket.emit('typing',handle.value);
+  if(event.which === 13 && event.shiftKey == false){
+    socket.emit('chat', {
+      message: message.value,
+      handle: handle.value
+    });
+    event.preventDefault();
+    message.value = "";
+  };
 });
 
 //Listen for events
