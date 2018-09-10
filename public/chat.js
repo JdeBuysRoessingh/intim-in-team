@@ -6,10 +6,15 @@ var message = document.getElementById('message'),
     handle = document.getElementById('handle'),
     btn = document.getElementById('send'),
     output = document.getElementById('output'),
-    feedback = document.getElementById('feedback');
+    feedback = document.getElementById('feedback'),
+    element = document.getElementById("chat-window");
+
+// scroll function
+function updateScroll(){
+  element.scrollTop = element.scrollHeight;
+}
 
 // Emit events
-
 btn.addEventListener('click', function(){
   socket.emit('chat', {
     message: message.value,
@@ -26,6 +31,7 @@ message.addEventListener('keypress', function(){
 socket.on('chat', function(data){
   feedback.innerHTML = "";
   output.innerHTML += '<p><strong>' + data.handle + ': </strong>' + data.message + '</p>';
+  updateScroll();
 });
 
 socket.on('typing',function(data){
