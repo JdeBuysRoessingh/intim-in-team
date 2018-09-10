@@ -37,3 +37,14 @@ socket.on('chat', function(data){
 socket.on('typing',function(data){
   feedback.innerHTML = '<p><em>' + data + ' is typing a message...</em></p>';
 });
+
+
+message.addEventListener('keypress', function(w){
+  if (w.keyCode == 13) {
+    socket.emit('chat', {
+      message: message.value,
+      handle: handle.value
+    });
+    message.value = "";
+  }
+});
