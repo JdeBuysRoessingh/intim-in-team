@@ -1,3 +1,4 @@
+//this is the server. that receives the messages and maybe send it someone else after
 var express = require('express');
 var socket = require('socket.io');
 
@@ -22,5 +23,4 @@ io.on('connection',function(socket){
   socket.on('typing',function(data){
     socket.broadcast.emit('typing',data);
   });
-
 });

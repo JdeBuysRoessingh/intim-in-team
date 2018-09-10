@@ -15,9 +15,12 @@ function updateScroll(){
 
 }
 
+// scroll function
+function updateScroll(){
+  element.scrollTop = element.scrollHeight;
+}
 
 // Emit events
-
 btn.addEventListener('click', function(){
   socket.emit('chat', {
     message: message.value,
@@ -34,9 +37,20 @@ message.addEventListener('keypress', function(){
 socket.on('chat', function(data){
   feedback.innerHTML = "";
   output.innerHTML += '<p><strong>' + data.handle + ': </strong>' + data.message + '</p>';
-  updateScroll()
+  updateScroll();
 });
 
 socket.on('typing',function(data){
   feedback.innerHTML = '<p><em>' + data + ' is typing a message...</em></p>';
+});
+
+
+message.addEventListener('keypress', function(w){
+  if (w.keyCode == 13) {
+    socket.emit('chat', {
+      message: message.value,
+      handle: handle.value
+    });
+    message.value = "";
+  }
 });
