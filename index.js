@@ -1,3 +1,4 @@
+//this is the server. that receives the messages and maybe send it someone else after
 var express = require('express');
 var socket = require('socket.io');
 
