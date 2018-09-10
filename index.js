@@ -23,5 +23,16 @@ io.on('connection',function(socket){
   socket.on('typing',function(data){
     socket.broadcast.emit('typing',data);
   });
-  
 });
+
+//Save chat history
+/*let fs= require('fs');
+
+app.get('/conversation', function(req,res){
+    let conversation =  fs.readFileSync('./conversations.txt',{encoding:'utf8'});
+    conversation = conversation + output;
+    fs.writeFileSync('./conversations.txt',conversation);
+    res.send(conversation);
+    page_conversation()
+});
+*/
