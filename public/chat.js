@@ -6,6 +6,14 @@ var message = document.getElementById('message'),
     handle = document.getElementById('handle'),
     btn = document.getElementById('send'),
     output = document.getElementById('output'),
+    feedback = document.getElementById('feedback')
+    element = document.getElementById('chat-window');
+
+// scroll function
+function updateScroll(){
+    element.scrollTop = element.scrollHeight;
+
+
     feedback = document.getElementById('feedback'),
     element = document.getElementById('chat-window'),
     time = document.getElementById('time'),
@@ -16,6 +24,7 @@ function addZero(i) {
         i = "0" + i;
     }
     return i;
+
 }
 
 function playAudio() {

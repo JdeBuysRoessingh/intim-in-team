@@ -12,7 +12,6 @@ const dbName = 'intim-in-team';
 var db
 
 //app setup
-
 var app = express();
 var server = app.listen(port, function(){
   console.log('listening to requests on port heroku or 4000');
