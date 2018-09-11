@@ -12,6 +12,14 @@ const dbName = 'intim-in-team';
 
 var db
 
+// Connection URL
+const url = 'mongodb://localhost:27017/';
+
+// Database Name
+const dbName = 'intim-in-team';
+
+var db
+
 //app setup
 var app = express();
 var server = app.listen(4000, function(){
