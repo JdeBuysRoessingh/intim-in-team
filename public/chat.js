@@ -24,7 +24,7 @@ function addZero(i) {
         i = "0" + i;
     }
     return i;
->>>>>>> 1b8724d3b137d9c513b753d4d5f50f0ec00451f0
+
 }
 
 // scroll function

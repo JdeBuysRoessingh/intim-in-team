@@ -1,5 +1,6 @@
 body{
-    font-family: 'Nunito';
+    font-family: 'Arial';
+    background: lightblue
 }
 
 .myheaders{
@@ -58,7 +59,7 @@ input{
     width: 100%;
     background: #fff;
     border-bottom: 1px solid #eee;
-    font-family: Nunito;
+    font-family: 'Arial';
     font-size: 16px;
 }
 
