@@ -3,6 +3,7 @@ var express = require('express');
 var socket = require('socket.io');
 const path = require('path');
 const MongoClient = require('mongodb').MongoClient;
+const port = process.env.PORT || 4000
 
 // Connection URL
 const url = 'mongodb://localhost:27017/';
@@ -15,8 +16,8 @@ var db
 //app setup
 
 var app = express();
-var server = app.listen(4000, function(){
-  console.log('listening to requests on port 4000');
+var server = app.listen(port, function(){
+  console.log('listening to requests on port heroku or 4000');
 });
 var io = socket(server);
 
