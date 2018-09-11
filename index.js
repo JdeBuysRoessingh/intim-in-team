@@ -1,4 +1,3 @@
-//this is the server. that receives the messages and maybe send it someone else after
 var express = require('express');
 var socket = require('socket.io');
 const path = require('path');
@@ -18,9 +17,8 @@ var server = app.listen(port, function(){
 });
 var io = socket(server);
 
+// Static files
 app.use(express.static('public'));
-
-// Use connect method to connect to the server
 MongoClient.connect(url, { newUrlParser: true } , function(err, dbb) {
   console.log(err)
   console.log("Connected successfully to server");
@@ -29,11 +27,32 @@ MongoClient.connect(url, { newUrlParser: true } , function(err, dbb) {
 
 });
 
+app.get("/calendar", function (req, res){
+  res.sendFile(path.join(__dirname+"/public/calendar.html"));
+});
+
+app.get("/chat", function (req, res){
+  res.sendFile(path.join(__dirname+"/public/index.html"));
+});
+// Socket setup & pass server
+var io = socket(server);
+io.on('connection', (socket) => {
+
+    console.log('made socket connection', socket.id);
+
+// Use connect method to connect to the server
+
+
 // Socket setup
 
 io.on('connection',function(socket){
 
-  console.log('made socket connection', socket.id);
+
+    // Handle chat event
+    socket.on('chat', function(data){
+        // console.log(data);
+        io.sockets.emit('chat', data);
+    });
 
   socket.on('loadMessages', function(){
     db.collection("message").find({}).toArray(function(err,result){
@@ -48,9 +67,6 @@ io.on('connection',function(socket){
     db.collection("message").insert(data)
   });
 
-  socket.on('typing',function(data){
-    socket.broadcast.emit('typing',data);
-  });
 });
 
 
