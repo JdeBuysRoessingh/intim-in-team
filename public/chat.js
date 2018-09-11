@@ -8,7 +8,10 @@ var message = document.getElementById('message'),
     output = document.getElementById('output'),
     feedback = document.getElementById('feedback'),
     demo = document.getElementById('demo'),
-    element = document.getElementById('chat-window');
+    element = document.getElementById('chat-window'),
+    y = document.getElementById("myAudio");
+
+
 
 
 function addZero(i) {
@@ -18,7 +21,12 @@ function addZero(i) {
     return i;
 }
 
-
+function playAudio() {
+    y.play();
+}
+function pauseAudio() {
+    y.pause();
+}
 
 // scroll function
 function updateScroll(){
@@ -32,6 +40,7 @@ btn.addEventListener('click', function(){
     handle: handle.value
   });
   message.value = "";
+  playAudio()
 });
 
 message.addEventListener('keypress', function(){
@@ -63,6 +72,7 @@ socket.on('chat', function(data){
   output.innerHTML += '<p><strong>' + data.handle + ': </strong>' + data.message + '</p>' + '<p style="font-size:12;font-weight:lighter;">' + h + ":" + m + ":" + s + '</p>';
   updateScroll();
 
+
 });
 
 // load typing message
@@ -77,7 +87,9 @@ message.addEventListener('keypress', function(w){
       handle: handle.value
     });
     message.value = "";
+    playAudio()
   }
+
 });
 
 
