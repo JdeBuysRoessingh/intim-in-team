@@ -12,14 +12,6 @@ const dbName = 'intim-in-team';
 
 var db
 
-// Connection URL
-const url = 'mongodb://localhost:27017/';
-
-// Database Name
-const dbName = 'intim-in-team';
-
-var db
-
 //app setup
 var app = express();
 var server = app.listen(4000, function(){
@@ -31,11 +23,11 @@ app.use(express.static('public'));
 
 // Use connect method to connect to the server
 MongoClient.connect(url, function(err, openConnection) {
-
+  console.log(err);
   console.log("Connected successfully to server");
 
   db = openConnection.db(dbName);
-
+  console.log("Connected successfully to DB")
 });
 
 // Socket setup
