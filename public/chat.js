@@ -7,8 +7,8 @@ var message = document.getElementById('message'),
     btn = document.getElementById('send'),
     output = document.getElementById('output'),
     feedback = document.getElementById('feedback'),
-    demo = document.getElementById('demo');
-
+    demo = document.getElementById('demo'),
+    element = document.getElementById('chat-window');
 
 function addZero(i) {
     if (i < 10) {
@@ -17,7 +17,12 @@ function addZero(i) {
     return i;
 }
 
+// scroll function
+function updateScroll(){
+  element.scrollTop = element.scrollHeight;
+}
 
+// Emit events
 btn.addEventListener('click', function(){
   socket.emit('chat', {
     message: message.value,
@@ -39,7 +44,7 @@ socket.on('chat', function(data){
   var s = addZero(d.getSeconds());
   feedback.innerHTML = "";
   output.innerHTML += '<p><strong>' + data.handle + ': </strong>' + data.message  + '</p>' + '<p style="font-size:12;font-weight:lighter;">' + h + ":" + m + ":" + s + '</p>';
-
+  updateScroll();
 });
 
 socket.on('typing',function(data){
@@ -47,15 +52,15 @@ socket.on('typing',function(data){
 });
 
 message.addEventListener('keypress', function(w){
-  if(w.keyCode == 13){
-    socket.emit('chat',{
+  if (w.keyCode == 13) {
+    socket.emit('chat', {
       message: message.value,
       handle: handle.value
-
     });
     message.value = "";
   }
 });
+
 
 // to understand this, it means that the function is an
 //argument and therefore cannot function as a function.
