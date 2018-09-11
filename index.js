@@ -3,10 +3,8 @@ var express = require('express');
 var socket = require('socket.io');
 const path = require('path');
 const MongoClient = require('mongodb').MongoClient;
-const port = process.env.PORT || 4000
-
-// Connection URL
-const url = 'mongodb://localhost:27017/';
+const port = process.env.PORT || 4000;
+const url = process.env.MONGOLAB_URI || "mongodb://localhost:27017";
 
 // Database Name
 const dbName = 'intim-in-team';
