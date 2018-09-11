@@ -26,7 +26,7 @@ MongoClient.connect(url, function(err, dbb) {
   console.log(err)
   console.log("Connected successfully to server");
 
-  db = dbb;
+  db = dbb.db();
 
 });
 
