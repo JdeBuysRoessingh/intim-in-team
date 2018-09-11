@@ -22,11 +22,11 @@ var io = socket(server);
 app.use(express.static('public'));
 
 // Use connect method to connect to the server
-MongoClient.connect(url, function(err, openConnection) {
+MongoClient.connect(url, function(err, dbb) {
   console.log(err)
   console.log("Connected successfully to server");
 
-  db = openConnection.db();
+  db = dbb;
 
 });
 
