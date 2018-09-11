@@ -4,7 +4,8 @@
   "description": "project SHSG summer school 2018",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -17,7 +18,10 @@
   },
   "homepage": "https://github.com/JdeBuysRoessingh/intim-in-team#readme",
   "dependencies": {
+    "bootstrap": "^4.1.3",
     "express": "^4.16.3",
+    "fs": "0.0.1-security",
+    "mongodb": "^3.1.4",
     "socket.io": "^2.1.1"
   },
   "devDependencies": {
