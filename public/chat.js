@@ -6,7 +6,6 @@ var message = document.getElementById('message'),
     handle = document.getElementById('handle'),
     btn = document.getElementById('send'),
     output = document.getElementById('output'),
-<<<<<<< HEAD
     feedback = document.getElementById('feedback')
     element = document.getElementById('chat-window');
 
@@ -14,7 +13,7 @@ var message = document.getElementById('message'),
 function updateScroll(){
     element.scrollTop = element.scrollHeight;
 
-=======
+
     feedback = document.getElementById('feedback'),
     demo = document.getElementById('demo'),
     element = document.getElementById('chat-window');
