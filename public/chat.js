@@ -10,12 +10,15 @@ var message = document.getElementById('message'),
     demo = document.getElementById('demo'),
     element = document.getElementById('chat-window');
 
+
 function addZero(i) {
     if (i < 10) {
         i = "0" + i;
     }
     return i;
 }
+
+
 
 // scroll function
 function updateScroll(){
@@ -43,8 +46,9 @@ socket.on('chat', function(data){
   var m = addZero(d.getMinutes());
   var s = addZero(d.getSeconds());
   feedback.innerHTML = "";
-  output.innerHTML += '<p><strong>' + data.handle + ': </strong>' + data.message  + '</p>' + '<p style="font-size:12;font-weight:lighter;">' + h + ":" + m + ":" + s + '</p>';
+  output.innerHTML += '<p><strong>' + data.handle + ': </strong>' + data.message + '</p>' + '<p style="font-size:12;font-weight:lighter;">' + h + ":" + m + ":" + s + '</p>';
   updateScroll();
+
 });
 
 socket.on('typing',function(data){
@@ -60,6 +64,7 @@ message.addEventListener('keypress', function(w){
     message.value = "";
   }
 });
+
 
 
 // to understand this, it means that the function is an
