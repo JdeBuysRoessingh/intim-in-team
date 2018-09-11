@@ -3,9 +3,8 @@ var express = require('express');
 var socket = require('socket.io');
 const path = require('path');
 const MongoClient = require('mongodb').MongoClient;
-
-// Connection URL
-const url = 'mongodb://localhost:27017/';
+const port = process.env.PORT || 4000;
+const url = process.env.MONGODB_URI || "mongodb://localhost:27017";
 
 // Database Name
 const dbName = 'intim-in-team';
@@ -15,19 +14,19 @@ var db
 //app setup
 
 var app = express();
-var server = app.listen(4000, function(){
-  console.log('listening to requests on port 4000');
+var server = app.listen(port, function(){
+  console.log('listening to requests on port heroku or 4000');
 });
 var io = socket(server);
 
 app.use(express.static('public'));
 
 // Use connect method to connect to the server
-MongoClient.connect(url, function(err, openConnection) {
-
+MongoClient.connect(url, { newUrlParser: true } , function(err, dbb) {
+  console.log(err)
   console.log("Connected successfully to server");
 
-  db = openConnection.db(dbName);
+  db = dbb.db();
 
 });
 

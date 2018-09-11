@@ -1,5 +1,5 @@
 // Make connection
-var socket = io.connect('http://localhost:4000');
+var socket = io.connect('https://intim-in-team.herokuapp.com/');
 
 //Query DOM
 var message = document.getElementById('message'),
@@ -7,12 +7,8 @@ var message = document.getElementById('message'),
     btn = document.getElementById('send'),
     output = document.getElementById('output'),
     feedback = document.getElementById('feedback'),
-    demo = document.getElementById('demo'),
     element = document.getElementById('chat-window'),
-    y = document.getElementById("myAudio");
-
-
-
+    time = document.getElementById('time');
 
 function addZero(i) {
     if (i < 10) {
@@ -35,12 +31,32 @@ function updateScroll(){
 
 // Emit events
 btn.addEventListener('click', function(){
+  var d = new Date();
+  var h = addZero(d.getHours());
+  var m = addZero(d.getMinutes());
+  var s = addZero(d.getSeconds());
   socket.emit('chat', {
     message: message.value,
-    handle: handle.value
+    handle: handle.value,
+    time: `${h}:${m}:${s}`
   });
   message.value = "";
   playAudio()
+});
+
+message.addEventListener('keypress', function(w){
+  var d = new Date();
+  var h = addZero(d.getHours());
+  var m = addZero(d.getMinutes());
+  var s = addZero(d.getSeconds());
+  if (w.keyCode == 13) {
+    socket.emit('chat', {
+      message: message.value,
+      handle: handle.value,
+      time: `${h}:${m}:${s}`
+    });
+    message.value = "";
+  }
 });
 
 message.addEventListener('keypress', function(){
@@ -56,20 +72,19 @@ window.addEventListener('load', function(){
 // load all messages
 socket.on('loadMessages', function(result){
   result.forEach(function(data){
-    output.innerHTML += '<p><strong>' + data.handle + ': </strong>' + data.message + '</p>';
+    output.innerHTML += '<p><strong>' + data.handle + ': </strong>' + data.message + '</p>' + '<p style="font-size:12;font-weight:lighter;">' + data.time + '</p>';
   });
   updateScroll();
 });
 
 // load chat message
 socket.on('chat', function(data){
-  var d = new Date();
-  var x = document.getElementById("demo");
-  var h = addZero(d.getHours());
-  var m = addZero(d.getMinutes());
-  var s = addZero(d.getSeconds());
   feedback.innerHTML = "";
+<<<<<<< HEAD
   output.innerHTML += '<p><strong>' + data.handle + ': </strong>' + data.message + '</p>' + '<p style="font-size:12;font-weight:lighter;">' + h + ":" + m + ":" + s + '</p>';
+=======
+  output.innerHTML += '<p><strong>' + data.handle + ': </strong>' + data.message  + '</p>' + '<p style="font-size:12;font-weight:lighter;">' + data.time + '</p>';
+>>>>>>> dff97efe414ccd2d260db9b821fb0305c09f6728
   updateScroll();
 
 
@@ -80,6 +95,7 @@ socket.on('typing',function(data){
   feedback.innerHTML = '<p><em>' + data + ' is typing a message...</em></p>';
 });
 
+<<<<<<< HEAD
 message.addEventListener('keypress', function(w){
   if (w.keyCode == 13) {
     socket.emit('chat', {
@@ -94,6 +110,8 @@ message.addEventListener('keypress', function(w){
 
 
 
+=======
+>>>>>>> dff97efe414ccd2d260db9b821fb0305c09f6728
 // to understand this, it means that the function is an
 //argument and therefore cannot function as a function.
 // BUT, because of the addeventlistener, it means make the argument work
