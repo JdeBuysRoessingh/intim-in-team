@@ -80,11 +80,7 @@ socket.on('loadMessages', function(result){
 // load chat message
 socket.on('chat', function(data){
   feedback.innerHTML = "";
-<<<<<<< HEAD
-  output.innerHTML += '<p><strong>' + data.handle + ': </strong>' + data.message + '</p>' + '<p style="font-size:12;font-weight:lighter;">' + h + ":" + m + ":" + s + '</p>';
-=======
   output.innerHTML += '<p><strong>' + data.handle + ': </strong>' + data.message  + '</p>' + '<p style="font-size:12;font-weight:lighter;">' + data.time + '</p>';
->>>>>>> dff97efe414ccd2d260db9b821fb0305c09f6728
   updateScroll();
 
 
@@ -95,23 +91,6 @@ socket.on('typing',function(data){
   feedback.innerHTML = '<p><em>' + data + ' is typing a message...</em></p>';
 });
 
-<<<<<<< HEAD
-message.addEventListener('keypress', function(w){
-  if (w.keyCode == 13) {
-    socket.emit('chat', {
-      message: message.value,
-      handle: handle.value
-    });
-    message.value = "";
-    playAudio()
-  }
-
-});
-
-
-
-=======
->>>>>>> dff97efe414ccd2d260db9b821fb0305c09f6728
 // to understand this, it means that the function is an
 //argument and therefore cannot function as a function.
 // BUT, because of the addeventlistener, it means make the argument work
