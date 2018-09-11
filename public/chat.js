@@ -8,7 +8,8 @@ var message = document.getElementById('message'),
     output = document.getElementById('output'),
     feedback = document.getElementById('feedback'),
     element = document.getElementById('chat-window'),
-    time = document.getElementById('time');
+    time = document.getElementById('time'),
+    y = document.getElementById('myAudio');
 
 function addZero(i) {
     if (i < 10) {
@@ -56,6 +57,7 @@ message.addEventListener('keypress', function(w){
       time: `${h}:${m}:${s}`
     });
     message.value = "";
+    playAudio()
   }
 });
 
