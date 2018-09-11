@@ -17,6 +17,13 @@ function addZero(i) {
     return i;
 }
 
+function playAudio() {
+    y.play();
+}
+function pauseAudio() {
+    y.pause();
+}
+
 // scroll function
 function updateScroll(){
   element.scrollTop = element.scrollHeight;
@@ -34,6 +41,7 @@ btn.addEventListener('click', function(){
     time: `${h}:${m}:${s}`
   });
   message.value = "";
+  playAudio()
 });
 
 message.addEventListener('keypress', function(w){
@@ -74,6 +82,8 @@ socket.on('chat', function(data){
   feedback.innerHTML = "";
   output.innerHTML += '<p><strong>' + data.handle + ': </strong>' + data.message  + '</p>' + '<p style="font-size:12;font-weight:lighter;">' + data.time + '</p>';
   updateScroll();
+
+
 });
 
 // load typing message

@@ -16,7 +16,12 @@
     <div id="mario-chat">
       <div id="chat-window">
         <div class="message_content">
-          <div id="output"></div>
+        <div id="output"></div>
+        <audio id="myAudio">
+          <source src="facebook_pop_up.mp3" type="audio/mpeg">
+          <button onclick="playAudio()" type="button">Play Audio</button>
+          <button onclick="pauseAudio()" type="button">Pause Audio</button>
+        </audio>
         </div>
 
         <div id="feedback"></div>
